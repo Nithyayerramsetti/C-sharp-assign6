@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+
+namespace Assignment6ques1_delegate
+
+{
+    public delegate void DispEmp(int emp_id, string emp_name
+        , float salary);
+
+
+    public class Program
+    {
+
+        public static void DisplayMaanagerDetails(int emp_id, string emp_name, float Salary)
+        {
+            float PA = 8 * Salary / 100;
+            float FA = 13 * Salary / 100;
+            float OA = Salary / 100;
+            float GrossSalary = Salary + PA + FA + OA;
+            WriteLine("Manager Details...");
+            WriteLine("emp_id: {0}\nemp_name: {1}\nGrossSalary:{2}", emp_id, emp_name, GrossSalary);
+        }
+
+
+
+
+
+
+        static void Main(string[] args)
+
+        {
+            DispEmp obj = new DispEmp(Program.DisplayMaanagerDetails);
+
+            obj(10, "Royal", 9000.90F);
+
+
+            ReadLine();
+
+
+
+        }
+    }
+}
